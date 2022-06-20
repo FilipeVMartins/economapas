@@ -14,6 +14,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::post('/login', [App\Http\Controllers\AuthController::class, 'login']);
+
+Route::middleware('auth:sanctum')->group(function(){
+
+    Route::post('/logout', [App\Http\Controllers\AuthController::class, 'logout']);
+
+    Route::get('/cities', [App\Http\Controllers\CityController::class, 'index'])->name('cities');
+
+    Route::get('/groups', [App\Http\Controllers\GroupController::class, 'index'])->name('groups.index');
+    Route::post('/groups', [App\Http\Controllers\GroupController::class, 'store'])->name('groups.store');
+    Route::patch('/groups', [App\Http\Controllers\GroupController::class, 'update'])->name('groups.update');
+    Route::delete('/groups', [App\Http\Controllers\GroupController::class, 'destroy'])->name('groups.destroy');
+
 });

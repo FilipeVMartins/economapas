@@ -22,5 +22,10 @@
         "resolve-url-loader": "^5.0.0",
         "sass": "^1.32.11",
         "sass-loader": "^11.0.1"
+    },
+    "dependencies": {
+        "react-multi-select-component": "^4.2.9",
+        "react-router-dom": "^6.3.0",
+        "react-toastify": "^9.0.4"
     }
 }
